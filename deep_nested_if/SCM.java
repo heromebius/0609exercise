@@ -25,24 +25,30 @@ public class SourceControlManager
                                 System.out.println("Ready to push to SCM server.");
                                 scmServer.push(userName, passwd, commitMsg, changes);
                                 System.out.println("Finish to push to SCM server.");
+                                return 0;
                             } else {
                                 System.out.println("No change.");
+                                return 1;
                             }
                         } else {
                             System.out.println("Invalid Commit message.");
+                            return 2;
                         }
                     } else {
                         system.out.println("Invalid passwd.");
-
+                        return 3;
                     }
                 } else {
                     system.out.println("Invalid user name.");
+                    return 4;
                 }
             } else {
                 system.out.println("cicd server problem.");
+                return 5;
             }
         } else {
             system.out.println("scm server problem.");
+            return 6;
         }
     }
 }
